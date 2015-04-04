@@ -15,3 +15,158 @@
 
 @import "bootstrap";
 @import "font-awesome";
+
+body nav.navbar {
+  background-color: rgba(0,0,0,.15) ;
+  height: 30px;
+  border: 0;
+  margin-bottom: 0px;
+}
+
+nav.navbar a {
+  /* padding: 10px; */
+  color: white;
+}
+
+body {
+  background-color: rgb(14, 116, 175);
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/* boards index */
+
+.boards li {
+  list-style: none;
+  display: block;
+  float: left;
+
+  width: 325px;
+  height: 150px;
+  background-color: white;
+  border-radius: 3px;
+  margin: 0 10px 10px 0;
+  padding: 10px;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.boards li.board:hover {
+  background-color: #ccc;
+}
+
+.boards-header {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  padding: 5px 10px;
+}
+
+.board-form input {
+  width: 100%;
+  height: 130px;
+  text-align: center;
+  outline: 0;
+  border: 0;
+}
+
+
+/* boards show */
+
+.board-header {
+  display: block;
+  font-size: 18px;
+  color: white;
+  margin: 12px 0;
+  padding-left: 10px;
+}
+
+/* lists show */
+
+ul.lists {
+  padding: 0;
+  padding-left: 5px;
+}
+
+.lists>li {
+  background-color: #e2e4e6;
+  width: 270px;
+  margin: 0 10px;
+  color: rgb(77, 77, 77);
+  border-radius: 3px;
+  list-style: none;
+  display:block;
+  float: left;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding:8px
+}
+
+.list-form input {
+  background: rgba(0,0,0,.05);
+border-color: #aaa;
+box-shadow: inset 0 1px 8px rgba(0,0,0,.15);
+display: block;
+margin: 0;
+-webkit-transition: margin 85ms ease-in,background 85ms ease-in;
+transition: margin 85ms ease-in,background 85ms ease-in;
+width: 100%;
+  margin-bottom: 6px;
+}
+
+.list-header {
+  font-size: 16px;
+  line-height: 18px;
+  display: block;
+  font-weight: bold;
+  padding: 0 4px;
+  margin-bottom: 6px;
+
+}
+
+ul.cards {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.cards li {
+  list-style: none;
+  width: 100%;
+}
+
+.cards li.card, .card-form textarea {
+  display: block;
+  font-size: 14px;
+  padding: 6px 8px 8px 6px;
+  background-color: white;
+  border-radius: 3px;
+  margin-top: 6px;
+  border-bottom: thin solid #ccc;
+}
+
+.cards li.card:hover {
+  background-color: #edeff0;
+  border-bottom: thin solid #d6dadc;
+  cursor: pointer;
+}
+
+li.card {
+
+}
+
+.card-form textarea {
+  width: 100%;
+  appearance: none;
+  outline: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  display: block;
+  margin-bottom: 4px;
+  min-height: 30px;
+  resize: vertical;
+}
