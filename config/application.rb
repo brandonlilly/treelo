@@ -13,6 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module TrelloClone
   class Application < Rails::Application
+    config.secret_key_base = "9a2537d952ac9a630c0b8a9dc8bf7a4a461dc53ad6577044a2bfca33c1b9a3e651c499f566eda6c928345eef7a97d5a11292d20adc0c77c8a9f1f47d5201883d"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -170,3 +170,9 @@ li.card {
   min-height: 30px;
   resize: vertical;
 }
+
+/* sortable */
+
+.ui-sortable-helper {
+  transform: rotate(5deg);
+}
