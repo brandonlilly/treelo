@@ -28,13 +28,6 @@ TrelloClone.Views.ListsShow = Backbone.View.extend({
       }.bind(this));
     }
 
-    var card = new TrelloClone.Models.Card({ list_id: list.id });
-    var cardsForm = new TrelloClone.Views.CardsForm({
-      model: card,
-      collection: cards,
-    });
-    this.$('.cards').append(cardsForm.render().$el);
-
     this.$('.cards').sortable({
       connectWith: '.cards',
       items: '.card',
@@ -42,6 +35,13 @@ TrelloClone.Views.ListsShow = Backbone.View.extend({
         ui.item.trigger('cardupdate', ui.item.index());
       }.bind(this),
     });
+
+    var card = new TrelloClone.Models.Card({ list_id: list.id });
+    var cardsForm = new TrelloClone.Views.CardsForm({
+      model: card,
+      collection: cards,
+    });
+    this.$('.cards').append(cardsForm.render().$el);
 
     return this;
   },
