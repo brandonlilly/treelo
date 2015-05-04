@@ -43,6 +43,8 @@ TrelloClone.Views.ListsShow = Backbone.View.extend({
     });
     this.$('.cards').append(cardsForm.render().$el);
 
+    cardsForm.$('textarea').focus();
+
     return this;
   },
 

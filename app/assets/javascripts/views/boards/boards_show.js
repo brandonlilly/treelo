@@ -33,14 +33,9 @@ TrelloClone.Views.BoardsShow = Backbone.View.extend({
     });
     this.$('.lists').append(listsForm.render().$el);
 
-    // $('.ui-sortable').sortable({
-    //   // placeholder: "ui-sortable-placeholder",
-    //   update: function(event, ui) {
-    //     console.log('stop update event or sommat');
-    //     ui.item.trigger('cardupdate', ui.item.index());
-    //   }
-    //
-    // });
+    listsForm.$('input').focus();
+
+    this.$el.width((lists.length + 1) * 290 + 20);
 
     return this;
   },

@@ -4,7 +4,9 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
   className: 'card-form',
   events: {
     'submit form': 'create',
-    'keypress form': 'checkEnter'
+    'keypress form': 'checkEnter',
+    'focus textarea': 'removePlaceholder',
+    'blur textarea': 'addPlaceholder',
   },
 
   initialize: function () {
@@ -34,7 +36,17 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
     if (event.which === 13) {
       $(event.currentTarget).submit();
     }
-  }
+  },
+
+  removePlaceholder: function (event) {
+    var textarea = $(event.currentTarget);
+    textarea.attr('placeholder', '');
+  },
+
+  addPlaceholder: function (event) {
+    var textarea = $(event.currentTarget);
+    textarea.attr('placeholder', "Add a card...");
+  },
 
 
 });

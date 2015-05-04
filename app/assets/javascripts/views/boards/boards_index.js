@@ -2,7 +2,8 @@ TrelloClone.Views.BoardsIndex = Backbone.View.extend({
   template: JST['boards/index'],
 
   events: {
-
+    'focus input': 'removePlaceholder',
+    'blur input': 'addPlaceholder',
   },
 
   initialize: function () {
@@ -28,6 +29,16 @@ TrelloClone.Views.BoardsIndex = Backbone.View.extend({
     this.$('.boards').append(boardsForm.render().$el);
 
     return this;
+  },
+
+  removePlaceholder: function (event) {
+    var input = $(event.currentTarget);
+    input.attr('placeholder', '');
+  },
+
+  addPlaceholder: function (event) {
+    var input = $(event.currentTarget);
+    input.attr('placeholder', "Create a new board...");
   },
 
 
