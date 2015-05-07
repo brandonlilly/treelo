@@ -21,21 +21,26 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
 
   create: function (event) {
     event.preventDefault();
-    var attributes = $(event.currentTarget).serializeJSON();
+    var $form = $(event.currentTarget);
+    var attributes = $form.serializeJSON();
 
-    var lastCard = this.collection.max(function (card) {
-      return card.get('ord');
-    });
-    debugger
-    attributes.ord = lastCard.get('ord') + 1;
+    var ord = 0
+    if (this.collection.length > 0) {
+      var lastCard = this.collection.max(function (card) {
+        return card.get('ord');
+      });
+      ord = lastCard.get('ord') + 1
+    }
+    attributes.ord = ord;
 
-    this.model.save(attributes, {
-      success: function (model, response) {
-        this.collection.add(model);
-        this.$('textarea').focus();
-      }.bind(this)
-    });
-
+    if ($form.find('textarea').val() !== '') {
+      this.model.save(attributes, {
+        success: function (model, response) {
+          this.collection.add(model);
+          this.$('textarea').focus();
+        }.bind(this)
+      });
+    }
   },
 
   checkEnter: function (event) {
@@ -56,7 +61,7 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
 
   addPlaceholder: function (event) {
     var textarea = $(event.currentTarget);
-    textarea.attr('placeholder', "Add a card...");
+    textarea.attr('placeholder', "Add a leaf...");
   },
 
 

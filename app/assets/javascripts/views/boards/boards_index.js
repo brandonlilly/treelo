@@ -38,7 +38,7 @@ TrelloClone.Views.BoardsIndex = Backbone.View.extend({
 
   addPlaceholder: function (event) {
     var input = $(event.currentTarget);
-    input.attr('placeholder', "Create a new board...");
+    input.attr('placeholder', "Create a new tree...");
   },
 
 
