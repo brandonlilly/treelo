@@ -23,6 +23,12 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
     event.preventDefault();
     var attributes = $(event.currentTarget).serializeJSON();
 
+    var lastCard = this.collection.max(function (card) {
+      return card.get('ord');
+    });
+    debugger
+    attributes.ord = lastCard.get('ord') + 1;
+
     this.model.save(attributes, {
       success: function (model, response) {
         this.collection.add(model);
@@ -34,8 +40,8 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
 
   checkEnter: function (event) {
     var $form = $(event.currentTarget);
-    if (event.which === 13 && $form.val() !== '') {
-      if ($form.val() === '') {
+    if (event.which === 13) {
+      if ($form.find('textarea').val() === '') {
         event.preventDefault();
       } else {
         $form.submit();
