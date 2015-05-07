@@ -34,29 +34,84 @@
   font-style:normal;font-weight:700;
 }
 
-$navbar-height: 40px;
+$nav-height: 40px;
 
-body nav.navbar {
-  background-color: rgba(0,0,0,.15) ;
-  height: $navbar-height;
-  border: 0;
-  margin-bottom: 0px;
+nav.header {
+  height: $nav-height;
+  background: #0b6294;
+  color: white;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  min-height: none;
 
-  a.navbar-brand {
-    line-height: $navbar-height;
+  a.brand {
+    font-family: 'jaf-facitweb', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding: 0;
-    height: $navbar-height;
+    margin: 0 0 0 10px;
+    line-height: $nav-height;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;
+  }
+
+  a.boards-link {
+    float: left;
+    margin: 0 10px;
+  }
+
+  a.nav-link {
+    height: 30px;
+    padding: 0 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background: #4591BE;
+    line-height: 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    &:hover {
+      background: #5D9FC6;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      float: right;
+      margin-right: 10px;
+    }
   }
 }
 
-nav.navbar a {
-  color: white;
-}
+// body nav.navbar {
+//   background-color: rgba(0,0,0,.15) ;
+//   height: $navbar-height;
+//   border: 0;
+//   margin-bottom: 0px;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   min-height: none;
+//
+//   a.navbar-brand {
+//     line-height: $navbar-height;
+//     padding: 0;
+//     height: $navbar-height;
+//   }
+// }
+//
+// nav.navbar a {
+//   color: white;
+// }
+
+
 
 body {
   background-color: rgb(14, 116, 175);
@@ -107,6 +162,9 @@ body {
   text-align: center;
   outline: 0;
   border: 0;
+  &:not(:focus) {
+    cursor: pointer;
+  }
 }
 
 
@@ -210,7 +268,7 @@ ul.cards {
 .session-container {
   background: white;
   position: absolute;
-  top: $navbar-height;
+  top: $nav-height;
   bottom: 0;
   left: 0;
   right: 0;

@@ -33,8 +33,13 @@ TrelloClone.Views.CardsForm = Backbone.View.extend({
   },
 
   checkEnter: function (event) {
-    if (event.which === 13) {
-      $(event.currentTarget).submit();
+    var $form = $(event.currentTarget);
+    if (event.which === 13 && $form.val() !== '') {
+      if ($form.val() === '') {
+        event.preventDefault();
+      } else {
+        $form.submit();
+      }
     }
   },
 

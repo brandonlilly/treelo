@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation">
+<!-- <nav class="navbar" role="navigation">
 <div class="container container-fluid">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -27,6 +27,19 @@
     </ul>
   </div>
 </div>
+</nav> -->
+
+<nav class="header">
+  <a href="#" class="nav-link boards-link">Boards</a>
+  <a class="brand" href="#">Trello Clone</a>
+  <ul>
+  <% if signed_in? %>
+    <li><%= link_to "Sign out", session_url, method: :delete, class: 'nav-link' %></li>
+  <% else %>
+    <li><%= link_to "Sign up", new_user_url, class: 'nav-link' %></li>
+    <li><%= link_to "Log in", new_session_url, class: 'nav-link' %></li>
+  <% end %>
+  </ul>
 </nav>
 
 <% if flash[:errors] %>
