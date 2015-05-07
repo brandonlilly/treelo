@@ -1,4 +1,4 @@
-# Trello Clone
+# Treelo
 Lite clone of Trello built on Rails with Backbone.js.
 
 ## Todo

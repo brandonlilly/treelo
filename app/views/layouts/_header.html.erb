@@ -1,37 +1,6 @@
-<!-- <nav class="navbar" role="navigation">
-<div class="container container-fluid">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Trello Clone</a>
-  </div>
-
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right">
-    <% if signed_in? %>
-      <li id='add-dropdown' class='dropdown'>
-        <button
-          class='dropdown-toggle navbar-btn btn btn-primary'
-          data-toggle='dropdown'><span class='glyphicon glyphicon-plus'></span>
-        </button>
-      </li>
-      <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn" %></li>
-    <% else %>
-      <li><%= link_to "Log in", new_session_url %></li>
-      <li><%= link_to "Sign up", new_user_url %></li>
-    <% end %>
-    </ul>
-  </div>
-</div>
-</nav> -->
-
 <nav class="header">
   <a href="#" class="nav-link boards-link">Boards</a>
-  <a class="brand" href="#">Trello Clone</a>
+  <a class="brand" href="#">Treelo</a>
   <ul>
   <% if signed_in? %>
     <li><%= link_to "Sign out", session_url, method: :delete, class: 'nav-link' %></li>
