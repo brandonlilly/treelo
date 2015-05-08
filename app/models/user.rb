@@ -6,19 +6,19 @@
 #  email           :string(255)      not null
 #  password_digest :string(255)      not null
 #  session_token   :string(255)      not null
-#  gravatar_url    :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  name            :string(255)      not null
 #
 
 class User < ActiveRecord::Base
-  validates :email, :session_token, presence: true
-  validates :password, length: { minimum: 5, allow_nil: true }
+  validates :email, :session_token, :name, presence: true
+  validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: true
 
-  has_many :boards
-  has_many :card_assignments
-  has_many :board_memberships
+  has_many :boards, dependent: :destroy
+  has_many :card_assignments, dependent: :destroy
+  has_many :board_memberships, dependent: :destroy
 
   attr_reader :password
   after_initialize :ensure_session_token
@@ -45,6 +45,19 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
+  end
+
+  def self.new_guest
+    guest = create(name: 'Guest', email: 'guest@example.com', password: 'password')
+    b = guest.boards.create(title: 'Welcome Tree')
+    l1 = b.lists.create(title: 'This is a branch')
+    l1.cards.create(title: 'This is a leaf.')
+    l1.cards.create(title: 'Drag leaves to reorder them.')
+    l1.cards.create(title: 'You can even drag them between branches!.')
+    l1.cards.create(title: 'Use leaves to organize your project.')
+    l2 = b.lists.create(title: 'Another branch')
+    l2.cards.create(title: 'Use leaves to organize your project.')
+    l2.cards.create(title: 'Enjoy your stay!.')
   end
 
   protected

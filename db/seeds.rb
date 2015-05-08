@@ -1,5 +1,11 @@
-u1 = User.create(email: 'ripe@gmail.com', password: 'password')
-u2 = User.create(email: 'thejamaicandave@gmail.com', password: 'password')
+Item.destroy_all
+Card.destroy_all
+List.destroy_all
+Board.destroy_all
+User.destroy_all
+
+u1 = User.create(name: 'Ripe', email: 'ripe@gmail.com', password: 'password')
+u2 = User.create(name: 'Dave', email: 'thejamaicandave@gmail.com', password: 'password')
 
 b1 = u1.boards.create(title: 'Workout')
 b2 = u1.boards.create(title: 'Jamaica')

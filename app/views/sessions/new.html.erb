@@ -1,10 +1,10 @@
 <div class="session-container">
 
   <% if flash[:errors] %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
-     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  <%= flash[:errors].join("<br>").html_safe %>
-  </div>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <%= flash[:errors].join("<br>").html_safe %>
+    </div>
   <% end %>
 
   <div class="session-panel">
@@ -20,9 +20,9 @@
       </label><br>
       <button class="btn btn-primary">Log in</button><br>
     </form>
-    Or...
+    <span class="or">Or...</span>
     <br><br>
-    <button class="btn btn-primary guest-login">Log in as guest</button><br>
+    <%= button_to "Log in as guest", users_path, method: :post, class: "btn btn-primary guest-login" %>
   </div>
 
 </div>
